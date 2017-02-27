@@ -38,7 +38,7 @@ class Newsletter
 
     public function assets()
     {
-        wp_enqueue_script('nanga-newsletter', plugin_dir_url(__DIR__) . 'assets/js/nanga-newsletter.js', ['jquery'], null, true);
+        wp_enqueue_script('nanga-newsletter', get_template_directory_uri() . '/vendor/nanga/nanga-newsletter/assets/js/nanga-newsletter.js', ['jquery'], null, true);
         wp_localize_script('nanga-newsletter', 'nangaNewsletter', ['endpoint' => admin_url('admin-ajax.php')]);
     }
 
