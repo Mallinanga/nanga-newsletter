@@ -15,6 +15,7 @@
     }
   },
   "require": {
+    "drewm/mailchimp-api": "^2.4"
   },
   "require-dev": {
   }
