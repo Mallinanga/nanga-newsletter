@@ -10,6 +10,16 @@ engines:
     enabled: true
   phpmd:
     enabled: true
+  stylelint:
+    enabled: false
+  phpcodesniffer:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  scss-lint:
+    enabled: true
 ratings:
   paths:
   - "**.inc"

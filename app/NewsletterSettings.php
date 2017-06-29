@@ -1,4 +1,5 @@
 <?php
+
 namespace Nanga;
 
 final class NewsletterSettings
@@ -18,6 +19,7 @@ final class NewsletterSettings
         add_action('admin_notices', [$this, 'notices']);
         add_action('acf/init', [$this, 'settingsPage']);
         add_action('acf/init', [$this, 'settingsFields']);
+        add_filter('nanga_settings_tabs', [$this, 'settingsTab']);
         //add_filter('get_user_option_screen_layout_toplevel_page_newsletter-settings', '__return_true');
     }
 
@@ -89,15 +91,16 @@ final class NewsletterSettings
 
     public function settingsPage()
     {
-        if (function_exists('acf_add_options_page')) {
-            acf_add_options_page([
-                'capability' => 'manage_options',
-                'icon_url'   => 'dashicons-hammer',
-                'menu_slug'  => 'newsletter-settings',
-                'menu_title' => 'Newsletter Form',
-                'page_title' => 'Newsletter Form Configuration',
-                'position'   => false,
-                'redirect'   => false,
+        if (function_exists('acf_add_options_sub_page')) {
+            acf_add_options_sub_page([
+                'capability'  => 'manage_options',
+                'icon_url'    => 'dashicons-hammer',
+                'menu_slug'   => 'newsletter-settings',
+                'menu_title'  => 'Newsletter Form',
+                'page_title'  => 'Newsletter Form Configuration',
+                'parent_slug' => 'options-general.php',
+                'position'    => false,
+                'redirect'    => false,
             ]);
         }
     }
@@ -225,6 +228,18 @@ final class NewsletterSettings
                 'description'           => '',
             ]);
         }
+    }
+
+    public function settingsTab($tabs)
+    {
+        $tabs['newsletter'] = [
+            'icon'  => 'dashicons-email',
+            'show'  => true,
+            'slug'  => 'newsletter',
+            'title' => 'Newsletter',
+        ];
+
+        return $tabs;
     }
 
     private function __clone()

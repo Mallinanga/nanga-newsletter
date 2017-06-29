@@ -1,0 +1,9 @@
+/.codeclimate.yml export-ignore
+/.csslintrc export-ignore
+/.eslintignore export-ignore
+/.eslintrc.yml export-ignore
+/.eslintrc.yml.swp export-ignore
+/.gitattributes export-ignore
+/composer.json export-ignore
+/composer.lock export-ignore
+/README.md export-ignore

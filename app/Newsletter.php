@@ -1,4 +1,5 @@
 <?php
+
 namespace Nanga;
 
 use DrewM\MailChimp\MailChimp;
